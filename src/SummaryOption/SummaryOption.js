@@ -2,13 +2,8 @@ import React from 'react';
 
 export default class SummaryOption extends React.Component {
     render () {
-        const {featureHash, feature} = this.props;
+        const {featureHash, feature, USCurrencyFormat} = this.props;
         const selectedOption = this. props.selectedOption;
-
-        const USCurrencyFormat = new Intl.NumberFormat('en-US', {
-            style: 'currency',
-            currency: 'USD'
-          });
 
         return (
             <div className="summary__option" key={featureHash}>
