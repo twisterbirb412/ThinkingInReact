@@ -1,6 +1,5 @@
 import React from 'react';
-import FeatureItem from '../FeatureItem/FeatureItem';
-import slugify from 'slugify';
+import Feature from '../Feature/Feature';
 
 export default class PartSelectionForm extends React.Component {
 
@@ -11,26 +10,20 @@ export default class PartSelectionForm extends React.Component {
 
         const features = Object.keys(this.props.features).map((feature, idx) => {
             const featureHash = feature + '-' + idx;
-            const options = this.props.features[feature].map(item => {
-                const itemHash = slugify(JSON.stringify(item));
 
-                return (
-                    <FeatureItem 
-                        itemHash = {itemHash}
-                        item={item}
-                        feature={feature}
-                        updateFeature = {updateFeature}
-                        selected = {selected}
-                        USCurrencyFormat={USCurrencyFormat}/>
-                )
-            });
+
         
             return (
                 <fieldset className="feature" key={featureHash}>
                 <legend className="feature__name">
                     <h3>{feature}</h3>
                 </legend>
-                {options}
+                <Feature 
+                    features = {this.props.features}
+                    feature = {feature}
+                    selected = {selected}
+                    updateFeature = {updateFeature}
+                    USCurrencyFormat = {USCurrencyFormat}/>
                 </fieldset>
 
             );

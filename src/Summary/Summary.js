@@ -1,5 +1,6 @@
 import React from 'react';
 import SummaryOption from '../SummaryOption/SummaryOption';
+import SummaryTotal from '../SummaryTotal/SummaryTotal';
 
 export default class Summary extends React.Component {
     render () {
@@ -22,12 +23,9 @@ export default class Summary extends React.Component {
             <section className="main__summary">
             <h2>Your cart</h2>
             {summary}
-            <div className="summary__total">
-              <div className="summary__total__label">Total</div>
-              <div className="summary__total__value">
-                {USCurrencyFormat.format(total)}
-              </div>
-            </div>
+            <SummaryTotal 
+              USCurrencyFormat = {USCurrencyFormat}
+              total = {total}/>
             </section>
         )
 
